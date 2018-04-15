@@ -1,17 +1,17 @@
-#Changes for PWA application:
+## Changes for PWA application:
 
 
-#angular-cli.json	
+# angular-cli.json	
 ```ts
 "serviceWorker": true,
 ```
 
-#package.json		=>	
+# package.json			
 ```ts
 "@angular/service-worker": "^5.2.9",
 ```
 
-#index.html		    =>	
+# index.html		  	
 ```html
   <link rel="manifest" href="assets/manifest.json">
         				<meta name="theme-color" content="#317EFB"/>
@@ -19,7 +19,7 @@
 				        <noscript>Enable JavaScript to view this web page.</noscript>
 ```
 
-#main.ts			=>	
+# main.ts
 ```ts
 platformBrowserDynamic().bootstrapModule(AppModule)  
 					.then(() => {
@@ -30,7 +30,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 					.catch(err => console.log(err));
 ```
 
-#ngsw-config.json	=>
+# ngsw-config.json
 
 ```json
 {
@@ -65,7 +65,8 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 }
 ```
 
-#assets > manifest.json		=>
+# assets > manifest.json		
+
 ```json
 {
     "dir": "ltr",
