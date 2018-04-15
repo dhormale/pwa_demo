@@ -1,15 +1,15 @@
-##Changes for PWA application:
+#Changes for PWA application:
 
 
-#angular-cli.json	=>	
+#angular-cli.json	
 ```ts
 "serviceWorker": true,
-```ts
+```
 
 #package.json		=>	
 ```ts
 "@angular/service-worker": "^5.2.9",
-```ts
+```
 
 #index.html		    =>	
 ```html
@@ -17,7 +17,7 @@
         				<meta name="theme-color" content="#317EFB"/>
 		        		<meta name="Description" content="PWA TEST">
 				        <noscript>Enable JavaScript to view this web page.</noscript>
-```html
+```
 
 #main.ts			=>	
 ```ts
@@ -28,7 +28,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 						}
                     })
 					.catch(err => console.log(err));
-```ts
+```
 
 #ngsw-config.json	=>
 
@@ -63,7 +63,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
         }
     ]
 }
-```ts
+```
 
 #assets > manifest.json		=>
 ```json
@@ -94,4 +94,4 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     "related_applications": [],
     "prefer_related_applications": false
 }
-```json
+```
