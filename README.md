@@ -1,25 +1,38 @@
-#Changes for PWA application:
+##Changes for PWA application:
 
 
-.angular-cli.json	=>	"serviceWorker": true,
+#angular-cli.json	=>	
+```ts
+"serviceWorker": true,
+```ts
 
-package.json		=>	"@angular/service-worker": "^5.2.9",
+#package.json		=>	
+```ts
+"@angular/service-worker": "^5.2.9",
+```ts
 
-index.html		    =>	<link rel="manifest" href="assets/manifest.json">
+#index.html		    =>	
+```html
+  <link rel="manifest" href="assets/manifest.json">
         				<meta name="theme-color" content="#317EFB"/>
 		        		<meta name="Description" content="PWA TEST">
 				        <noscript>Enable JavaScript to view this web page.</noscript>
+```html
 
-main.ts			=>	platformBrowserDynamic().bootstrapModule(AppModule)  
+#main.ts			=>	
+```ts
+platformBrowserDynamic().bootstrapModule(AppModule)  
 					.then(() => {
 						if ('serviceWorker' in navigator) {
 							navigator.serviceWorker.register('ngsw-worker.js');
 						}
                     })
 					.catch(err => console.log(err));
+```ts
 
-ngsw-config.json	=>
+#ngsw-config.json	=>
 
+```json
 {
     "index": "/index.html",
     "assetGroups": [
@@ -50,10 +63,10 @@ ngsw-config.json	=>
         }
     ]
 }
+```ts
 
-
-assets > manifest.json		=>
-
+#assets > manifest.json		=>
+```json
 {
     "dir": "ltr",
     "lang": "en",
@@ -81,3 +94,4 @@ assets > manifest.json		=>
     "related_applications": [],
     "prefer_related_applications": false
 }
+```json
