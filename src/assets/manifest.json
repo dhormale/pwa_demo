@@ -1,0 +1,27 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "PWA TEST",
+    "scope": "/",
+    "display": "standalone",
+    "start_url": "/index.html",
+    "short_name": "NF",
+    "icons": [
+        {
+        "src": "/assets/logo.png",
+        "sizes": "256x256",
+        "type": "image/png"
+        },
+        {
+        "src": "/assets/logo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+        }
+    ],
+    "theme_color": "#f27b00",
+    "description": "",
+    "orientation": "any",
+    "background_color": "#3a1c8d",
+    "related_applications": [],
+    "prefer_related_applications": false
+}

@@ -1,27 +1,83 @@
-# Pwa
+#Changes for PWA application:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
-## Development server
+.angular-cli.json	=>	"serviceWorker": true,
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+package.json		=>	"@angular/service-worker": "^5.2.9",
 
-## Code scaffolding
+index.html		    =>	<link rel="manifest" href="assets/manifest.json">
+        				<meta name="theme-color" content="#317EFB"/>
+		        		<meta name="Description" content="PWA TEST">
+				        <noscript>Enable JavaScript to view this web page.</noscript>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+main.ts			=>	platformBrowserDynamic().bootstrapModule(AppModule)  
+					.then(() => {
+						if ('serviceWorker' in navigator) {
+							navigator.serviceWorker.register('ngsw-worker.js');
+						}
+                    })
+					.catch(err => console.log(err));
 
-## Build
+ngsw-config.json	=>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+{
+    "index": "/index.html",
+    "assetGroups": [
+        {
+            "name": "app",
+            "installMode": "prefetch",
+            "resources": {
+                "files": [
+                    "/favicon.ico",
+                    "/index.html"
+                ],
+                "versionedFiles": [
+                    "/*.bundle.css",
+                    "/*.bundle.js",
+                    "/*.chunk.js"
+                ]
+            }
+        },
+        {
+            "name": "assets",
+            "installMode": "lazy",
+            "updateMode": "prefetch",
+            "resources": {
+                "files": [
+                    "/assets/**"
+                ]
+            }
+        }
+    ]
+}
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+assets > manifest.json		=>
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "PWA TEST",
+    "scope": "/",
+    "display": "standalone",
+    "start_url": "/index.html",
+    "short_name": "NF",
+    "icons": [
+        {
+        "src": "/assets/logo.png",
+        "sizes": "256x256",
+        "type": "image/png"
+        },
+        {
+        "src": "/assets/logo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+        }
+    ],
+    "theme_color": "#f27b00",
+    "description": "",
+    "orientation": "any",
+    "background_color": "#3a1c8d",
+    "related_applications": [],
+    "prefer_related_applications": false
+}
